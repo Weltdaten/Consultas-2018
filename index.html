@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Consultas 2018</title>
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/Localidades_Electoral_2018_0.js"></script>
+        <script src="data/GCC_Duque_Loc_1.js"></script>
+        <script src="data/CIS_Petro_Loc_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[4.43350760025,-74.5054081113],[4.87142060025,-73.6795195587]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="http://www.cide.edu.co/cidevirtual/file.php/1/Normatividad_Derechos_de_Autor.pdf" target="_blank">Andres.Castiblanco-Derechos Reservados</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_Localidades_Electoral_2018_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">LocNombre</th>\
+                        <td>' + (feature.properties['LocNombre'] !== null ? Autolinker.link(String(feature.properties['LocNombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LocCodigo</th>\
+                        <td>' + (feature.properties['LocCodigo'] !== null ? Autolinker.link(String(feature.properties['LocCodigo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GCC_IVAN</th>\
+                        <td>' + (feature.properties['GCC_IVAN'] !== null ? Autolinker.link(String(feature.properties['GCC_IVAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CIS_PETRO</th>\
+                        <td>' + (feature.properties['CIS_PETRO'] !== null ? Autolinker.link(String(feature.properties['CIS_PETRO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Localidades_Electoral_2018_0_0() {
+            return {
+                pane: 'pane_Localidades_Electoral_2018_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Localidades_Electoral_2018_0');
+        map.getPane('pane_Localidades_Electoral_2018_0').style.zIndex = 400;
+        map.getPane('pane_Localidades_Electoral_2018_0').style['mix-blend-mode'] = 'normal';
+        var layer_Localidades_Electoral_2018_0 = new L.geoJson(json_Localidades_Electoral_2018_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Localidades_Electoral_2018_0',
+            onEachFeature: pop_Localidades_Electoral_2018_0,
+            style: style_Localidades_Electoral_2018_0_0,
+        });
+        bounds_group.addLayer(layer_Localidades_Electoral_2018_0);
+        map.addLayer(layer_Localidades_Electoral_2018_0);
+        function pop_GCC_Duque_Loc_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GCC_IVAN</th>\
+                        <td>' + (feature.properties['GCC_IVAN'] !== null ? Autolinker.link(String(feature.properties['GCC_IVAN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GCC_Duque_Loc_1_0(feature) {
+            if (feature.properties['GCC_IVAN'] >= 0.000000 && feature.properties['GCC_IVAN'] <= 2000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 2000.000000 && feature.properties['GCC_IVAN'] <= 4000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,105,9,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 4000.000000 && feature.properties['GCC_IVAN'] <= 6000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 12.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,182,0,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 6000.000000 && feature.properties['GCC_IVAN'] <= 8000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,255,0,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 8000.000000 && feature.properties['GCC_IVAN'] <= 10000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 20.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,255,0,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 10000.000000 && feature.properties['GCC_IVAN'] <= 12000.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 24.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(86,228,0,1.0)',
+            }
+            }
+            if (feature.properties['GCC_IVAN'] >= 12000.000000 && feature.properties['GCC_IVAN'] <= 13767.000000 ) {
+                return {
+                pane: 'pane_GCC_Duque_Loc_1',
+                radius: 26.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,0,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_GCC_Duque_Loc_1');
+        map.getPane('pane_GCC_Duque_Loc_1').style.zIndex = 401;
+        map.getPane('pane_GCC_Duque_Loc_1').style['mix-blend-mode'] = 'normal';
+        var layer_GCC_Duque_Loc_1 = new L.geoJson(json_GCC_Duque_Loc_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_GCC_Duque_Loc_1',
+            onEachFeature: pop_GCC_Duque_Loc_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GCC_Duque_Loc_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GCC_Duque_Loc_1);
+        map.addLayer(layer_GCC_Duque_Loc_1);
+        function pop_CIS_Petro_Loc_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CIS_PETRO</th>\
+                        <td>' + (feature.properties['CIS_PETRO'] !== null ? Autolinker.link(String(feature.properties['CIS_PETRO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CIS_Petro_Loc_2_0(feature) {
+            if (feature.properties['CIS_PETRO'] >= 11.000000 && feature.properties['CIS_PETRO'] <= 1000.000000 ) {
+                return {
+                pane: 'pane_CIS_Petro_Loc_2',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+            }
+            if (feature.properties['CIS_PETRO'] >= 1000.000000 && feature.properties['CIS_PETRO'] <= 2000.000000 ) {
+                return {
+                pane: 'pane_CIS_Petro_Loc_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,145,0,1.0)',
+            }
+            }
+            if (feature.properties['CIS_PETRO'] >= 2000.000000 && feature.properties['CIS_PETRO'] <= 3000.000000 ) {
+                return {
+                pane: 'pane_CIS_Petro_Loc_2',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,255,0,1.0)',
+            }
+            }
+            if (feature.properties['CIS_PETRO'] >= 3000.000000 && feature.properties['CIS_PETRO'] <= 4000.000000 ) {
+                return {
+                pane: 'pane_CIS_Petro_Loc_2',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,255,0,1.0)',
+            }
+            }
+            if (feature.properties['CIS_PETRO'] >= 4000.000000 && feature.properties['CIS_PETRO'] <= 4599.000000 ) {
+                return {
+                pane: 'pane_CIS_Petro_Loc_2',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,0,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_CIS_Petro_Loc_2');
+        map.getPane('pane_CIS_Petro_Loc_2').style.zIndex = 402;
+        map.getPane('pane_CIS_Petro_Loc_2').style['mix-blend-mode'] = 'normal';
+        var layer_CIS_Petro_Loc_2 = new L.geoJson(json_CIS_Petro_Loc_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_CIS_Petro_Loc_2',
+            onEachFeature: pop_CIS_Petro_Loc_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CIS_Petro_Loc_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CIS_Petro_Loc_2);
+        map.addLayer(layer_CIS_Petro_Loc_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'CIS_Petro_Loc<br /><table><tr><td style="text-align: center;"><img src="legend/CIS_Petro_Loc_2_1010000.png" /></td><td> 10 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/CIS_Petro_Loc_2_100020001.png" /></td><td> 1000 - 2000 </td></tr><tr><td style="text-align: center;"><img src="legend/CIS_Petro_Loc_2_200030002.png" /></td><td> 2000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/CIS_Petro_Loc_2_300040003.png" /></td><td> 3000 - 4000 </td></tr><tr><td style="text-align: center;"><img src="legend/CIS_Petro_Loc_2_400046004.png" /></td><td> 4000 - 4600 </td></tr></table>': layer_CIS_Petro_Loc_2,'GCC_Duque_Loc<br /><table><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_020000.png" /></td><td> 0 - 2000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_200040001.png" /></td><td> 2000 - 4000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_400060002.png" /></td><td> 4000 - 6000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_600080003.png" /></td><td> 6000 - 8000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_8000100004.png" /></td><td> 8000 - 10000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_10000120005.png" /></td><td> 10000 - 12000 </td></tr><tr><td style="text-align: center;"><img src="legend/GCC_Duque_Loc_1_12000137676.png" /></td><td> 12000 - 13767 </td></tr></table>': layer_GCC_Duque_Loc_1,'<img src="legend/Localidades_Electoral_2018_0.png" /> Localidades_Electoral_2018': layer_Localidades_Electoral_2018_0,}).addTo(map);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_CIS_Petro_Loc_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Nombre'}));
+        </script>
+    </body>
+</html>
